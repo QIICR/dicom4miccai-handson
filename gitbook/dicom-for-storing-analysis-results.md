@@ -16,14 +16,14 @@ In this tutorial we will use just 2 modules of 3D Slicer:
 * `DICOM` module to load the DICOM datasets
 * `Quantitative Reporting` to perform segmentation and quantitation of the DICOM images
 
-![](/assets/slicer-ui.png)
+![](/gitbook/assets/slicer-ui.png)
 
 
 ## Step 1: Import DICOM data
 
 As the first step, we need to import the DICOM data that we downloaded in the [Prerequisites](/gitbook/prerequisites.md) into Slicer. To do this, activate the `DICOM` module, click the "Import" button in the DICOM module popup to select the data directory, and click "Import", as shown in the screenshot below. When prompted, choose "Add link" to avoid copying the dataset.
 
-![](/assets/dicom-import.png)
+![](/gitbook/assets/dicom-import.png)
 
 ## Step 2: Load DICOM image
 
