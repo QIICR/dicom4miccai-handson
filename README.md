@@ -7,7 +7,7 @@ The purpose of this tutorial is to introduce you to the basic concepts related t
 The tutorial is organized into the following sections:
 
 1. [Software prerequisites](prerequisites.md)
-2. [Using DICOM to store your analysis results](slicer_seg.md)
+2. Using DICOM to store your analysis results -- **COMING SOON!**
 
 
 
