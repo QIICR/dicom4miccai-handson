@@ -27,7 +27,7 @@ As the first step, we need to import the DICOM data that we downloaded in the [P
 
 If the import operation was successful, you should see the following items in your `DICOM Browser` window.
 
-![](/assets/dicom-imported.png)
+![](/gitbook/assets/dicom-imported.png)
 
 ## Step 2: Load DICOM image
 
