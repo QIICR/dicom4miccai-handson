@@ -58,7 +58,7 @@ Windows: go to menu item `File > Settings > Install`
 
 Mac: go to menu item `Atom > Preferences > Install`
 
-Linux: go to menu item `File > Settings > Install`
+Linux: go to menu item `Edit > Preferences > Install`
 
 Search for `dicom-dump` package, click "Install" button when found.
 
