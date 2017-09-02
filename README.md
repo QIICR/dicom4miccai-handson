@@ -7,7 +7,7 @@ The purpose of this tutorial is to introduce you to the basic concepts related t
 The tutorial is organized into the following sections:
 
 1. [Prerequisites](gitbook/prerequisites.md)
-2. Using DICOM to store your analysis results -- **COMING SOON!**
+2. DICOM for storing analysis results -- **COMING SOON!**
 
 
 
