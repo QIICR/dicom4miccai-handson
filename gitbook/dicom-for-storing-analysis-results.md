@@ -13,7 +13,7 @@ You must complete the [Prerequisites](/gitbook/prerequisites.md) before proceedi
 * **2D and 3D viewers** are used to visualize 2D reformats of the image data with the various overlays (segmentations, annotations, intersections with models), and the 3D views of the data (volume rendering, model surfaces, annotations), respectively
 
 In this tutorial we will use just 2 modules of 3D Slicer: 
-* `DICOM` module to load the DICOM datasets
+* `DICOM Browser` module to load the DICOM datasets
 * `Quantitative Reporting` to perform segmentation and quantitation of the DICOM images
 
 ![](/gitbook/assets/slicer-ui.png)
@@ -21,11 +21,17 @@ In this tutorial we will use just 2 modules of 3D Slicer:
 
 ## Step 1: Import DICOM data
 
-As the first step, we need to import the DICOM data that we downloaded in the [Prerequisites](/gitbook/prerequisites.md) into Slicer. To do this, activate the `DICOM` module, click the "Import" button in the DICOM module popup to select the data directory, and click "Import", as shown in the screenshot below. When prompted, choose "Add link" to avoid copying the dataset.
+As the first step, we need to import the DICOM data that we downloaded in the [Prerequisites](/gitbook/prerequisites.md) into Slicer. To do this, activate the `DICOM Browser` module, click the "Import" button in the DICOM module popup to select the data directory, and click "Import", as shown in the screenshot below. When prompted, choose "Add link" to avoid copying the dataset.
 
 ![](/gitbook/assets/dicom-import.png)
 
+If the import operation was successful, you should see the following items in your `DICOM Browser` window.
+
+![](/assets/dicom-imported.png)
+
 ## Step 2: Load DICOM image
+
+Now that the DICOM images are indexed in the Slicer DICOM database we can open the individual image series. In the `DICOM Browser` window, select 
 
 ## Step 3: Segment lesions
 
