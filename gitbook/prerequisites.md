@@ -1,25 +1,26 @@
 # Prerequisites
 
-In this tutorial we will use several open source software tools, and publicly available datasets. 
+In this tutorial we will use several open source software tools, and publicly available datasets.
 
 Many of the tools we install here will be helpful to you in the future when you work with DICOM, so think about this as setting up your lab space for the future work!
 
-We prepared packages with the binaries of those tools for each of the platforms, that are provided on this page together with the platform-specific installation instructions. The list of the tools we will be using is provided in the Details section. 
+We prepared packages with the binaries of those tools for each of the platforms, that are provided on this page together with the platform-specific installation instructions. The list of the tools we will be using is provided in the Details section.
 
 ## Step 1: Download the software package for your platform
 
 **If you are attending the tutorial in-person**: we will be providing USB drives with the software. Copy the package for your platform to your computer.
 
-**If you are preparing for the tutorial beforehand, or are following it on your own**: use the links below to download the package (all packages are for 64-bit operating systems):
-* [Windows](https://github.com/qiicr/dicom4miccai-handson/releases/download/QIN-HEADNECK_tables/DICOM4MICCAI-Win64.zip)
-* [macOS](https://github.com/qiicr/dicom4miccai-handson/releases/download/QIN-HEADNECK_tables/DICOM4MICCAI-macOS.zip)
-* [Linux](https://github.com/qiicr/dicom4miccai-handson/releases/download/QIN-HEADNECK_tables/DICOM4MICCAI-Linux.zip)
+**If you are preparing for the tutorial beforehand, or are following it on your own**: use the links below to download the package \(all packages are for 64-bit operating systems\):
+
+* [Windows](https://github.com/QIICR/dicom4miccai-handson/releases/download/miccai2017/DICOM4MICCAI-Win64.zip)
+* [macOS](https://github.com/QIICR/dicom4miccai-handson/releases/download/miccai2017/DICOM4MICCAI-macOS.zip)
+* [Linux](https://github.com/QIICR/dicom4miccai-handson/releases/download/miccai2017/DICOM4MICCAI-Linux.zip)
 
 ## Step 2: Install the software
 
 First, extract the package you downloaded. We will further refer to the location of the extracted folder as `DICOM4MICCAI_ROOT`.
 
-Next, install the software tools that require installation (3D Slicer and Atom editor), following the platform-specific instructions below.
+Next, install the software tools that require installation \(3D Slicer and Atom editor\), following the platform-specific instructions below.
 
 Note, that if you have an older version of 3D Slicer, you will need to install the one we provide! Although we use a standard 3D Slicer package, we will be using functionality introduced relatively recently.
 
@@ -29,7 +30,7 @@ Double-click the installers for 3D Slicer and Atom editor to install these tools
 
 ### macOS
 
-Open the 3D Slicer package (`.dmg` file), then **drag the 3D Slicer icon in the opened volume to your Applications folder** (if you don't do this, Slicer will not function properly!).
+Open the 3D Slicer package \(`.dmg` file\), then **drag the 3D Slicer icon in the opened volume to your Applications folder** \(if you don't do this, Slicer will not function properly!\).
 
 To install Atom editor, unzip the Atom.zip file, and drag the Atom icon to your Applications folder.
 
@@ -67,20 +68,25 @@ Once installed, click `dicom-dump` "Settings" button, locate the entry with the 
 
 To keep the data that we will use in the tutorial, make a sub-folder `Data` in the `DICOM-tutorial` folder we created earlier.
 
-Download the file from this location, and extract its contents: 
-* [data package](https://github.com/QIICR/dicom4miccai-handson/releases/download/QIN-HEADNECK_tables/DICOM4MICCAI-Data.zip)
+Download the file from this location, and extract its contents:
+
+* [data package](https://github.com/QIICR/dicom4miccai-handson/releases/download/miccai2017/DICOM4MICCAI-Data.zip)
 
 The zip file contains the following items:
+
 * Single DICOM PET series for subject 24 from the [TCIA QIN-HEADNECK collection](https://wiki.cancerimagingarchive.net/display/Public/QIN-HEADNECK)
 * Single DICOM CT series for subject 314 from the [TCIA LIDC-IDRI collection](https://wiki.cancerimagingarchive.net/display/Public/LIDC-IDRI)
 * segmentation of a lung nodule from the CT series above done using 3D Slicer [Chest Imaging Platform](https://chestimagingplatform.org/) extension "Lung lesion analyzer" module, stored in NRRD format
 
 ## Details on the software used
 
-Software|Information|Home page
--|-|-
-3D Slicer|Free open source software platform for medical image informatics, image processing, and three-dimensional visualization.|https://slicer.org
-DCMTK|DCMTK is a free open source collection of libraries and applications implementing large parts the DICOM standard.| http://dcmtk.org
-dcmqi|Free open source library that implements conversion of the data stored in commonly used research formats into the standard DICOM representation.|https://github.com/qiicr/dcmqi
-Atom|A hackable text editor for the 21st Century|https://atom.io
-dicom-dump|An Atom package that simplifies examining the content of DICOM files| https://atom.io/packages/dicom-dump
+| Software | Information | Home page |
+| --- | --- | --- |
+| 3D Slicer | Free open source software platform for medical image informatics, image processing, and three-dimensional visualization. | [https://slicer.org](https://slicer.org) |
+| DCMTK | DCMTK is a free open source collection of libraries and applications implementing large parts the DICOM standard. | [http://dcmtk.org](http://dcmtk.org) |
+| dcmqi | Free open source library that implements conversion of the data stored in commonly used research formats into the standard DICOM representation. | [https://github.com/qiicr/dcmqi](https://github.com/qiicr/dcmqi) |
+| Atom | A hackable text editor for the 21st Century | [https://atom.io](https://atom.io) |
+| dicom-dump | An Atom package that simplifies examining the content of DICOM files | [https://atom.io/packages/dicom-dump](https://atom.io/packages/dicom-dump) |
+
+
+
