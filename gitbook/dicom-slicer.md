@@ -1,6 +1,6 @@
 # DICOM for storing analysis results
 
-In this component of the tutorial we will use 3D Slicer to segment DICOM images, calculate segmentation-based measurements, store the results as DICOM objects, and use those DICOM objects to re-load those results.
+In this component of the tutorial we will use 3D Slicer to segment DICOM images, calculate segmentation-based measurements, store the results as DICOM objects, and use those DICOM objects to re-load the analysis results.
 
 You must complete the [Prerequisites](/gitbook/prerequisites.md) before proceeding!
 
@@ -8,7 +8,5 @@ You must complete the [Prerequisites](/gitbook/prerequisites.md) before proceedi
 [**Step 1**: Import DICOM data](/gitbook/dicom-slicer-1.md)
 [**Step 2**: Load DICOM image](/gitbook/dicom-slicer-2.md)
 [**Step 3**: Segment lesions](/gitbook/dicom-slicer-3.md)
-
-## Step 4: Explore and store the analysis results in DICOM
-
-## Step 5: Reload the analysis results from DICOM
+[**Step 4**: Explore and store the analysis results in DICOM](/gitbook/dicom-slicer-4.md)
+[**Step 5**: Reload the analysis results from DICOM](/gitbook/dicom-slicer-5.md)
