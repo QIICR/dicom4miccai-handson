@@ -1,5 +1,8 @@
 ## Step 3: Segment lesions
 
+**TODO:**
+* add overview of the QR interface and segmentation-related part
+
 We will use the `Quantitative Reporting` for the subsequent steps to annotate the loaded PET SUV image with the segmentations of the lesions, and to calculate segmentation-based measurements.
 
 Select the `Quantitative Reporting` module in the module selector. You can click the magnifying glass icon to the left of the module selector and start typing the module name to quickly locate it. Once the module is selected, choose "Create new Table" in the "Measurement report" selector in the module UI. This will create the top level data structure that will keep pointers to the image and the analysis results in the Slicer application.
@@ -14,9 +17,10 @@ Now we are ready to do the segmentation! First locate the lesions by scrolling t
 
 ![](/gitbook/assets/pt-lesion.png)
 
-The overall process of creating a segmentation in the `Quantitative Reporting` module is the following:
+### Create a new Segment 
 
-1. Create a new Segment that will store the segmentation. A single segment corresponds to a single structure or finding in the image.
+_A segment_ corresponds to a single structure or finding in the image. Use "Add segment" button to create a new segment. Once the segment is created, you should see a new 
+
 2. Describe the segmentation and assign the color to use for displaying segmentation overlay (if necessary)
 3. Use one of the segmentation tools to segment the structure/finding.
 
