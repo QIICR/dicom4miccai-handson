@@ -1,4 +1,4 @@
-### Segment the lesion
+### Segment the lesions
 
 Various segmentation tools are available, from basic manual contouring, to thresholding and more advanced automated tools.
 
