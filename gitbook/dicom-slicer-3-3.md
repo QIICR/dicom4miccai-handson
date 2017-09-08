@@ -8,6 +8,6 @@ To segment a PET lesion using this tool, first enable it from the list of segmen
 
 
 |![](/gitbook/assets/pt-lesion.png)|![](/gitbook/assets/pet-effect.png)|![](/gitbook/assets/pet-segmented.png)|
-|-|-|
+|-|-|-|
 
 **Try it yourself: Repeat the same sequence of steps to segment the Secondary lesion!**
