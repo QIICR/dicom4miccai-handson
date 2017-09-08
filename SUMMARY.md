@@ -20,4 +20,5 @@
  * [**Step 4**: Explore and store the segmentations in DICOM](/gitbook/dicom-mitk-4.md)
  * [**Step 5**: Reload the segmentations from DICOM](/gitbook/dicom-mitk-5.md)
 * [Exploration of the analysis results stored in DICOM](/gitbook/dicom-explore.md)
+* [Further reading](/gitbook/further-reading.md)
 
