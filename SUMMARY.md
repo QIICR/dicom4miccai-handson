@@ -12,7 +12,7 @@
 * [Using MITK Workbench for storing segmentation results in DICOM](/gitbook/dicom-mitk.md)
  * [**Step 0**: MITK interface basics](/gitbook/dicom-mitk-0.md)
  * [**Step 1**: Import DICOM data](/gitbook/dicom-mitk-1.md)
- * [**Step 2**: Load DICOM image](/gitbook/dicom-slicer-2.md)
+ * [**Step 2**: Load DICOM image](/gitbook/dicom-mitk-2.md)
  * [**Step 3**: Segment lesions](/gitbook/dicom-mitk-3.md)
  * [**Step 4**: Explore and store the segmentations in DICOM](/gitbook/dicom-mitk-4.md)
  * [**Step 5**: Reload the segmentations from DICOM](/gitbook/dicom-mitk-5.md)
