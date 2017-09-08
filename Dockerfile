@@ -11,6 +11,3 @@ RUN cd ${HOME}/data && wget https://github.com/QIICR/dicom4miccai-handson/releas
 
 RUN mkdir ${HOME}/src
 RUN cd ${HOME}/src && git clone https://github.com/qiicr/dicom4miccai-handson
-
-#VOLUME /data
-#VOLUME /src
