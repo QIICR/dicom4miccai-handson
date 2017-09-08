@@ -1,4 +1,4 @@
-# DICOM for storing analysis results
+# Using 3D Slicer for storing analysis results in DICOM
 
 In this component of the tutorial we will use 3D Slicer to segment DICOM images, calculate segmentation-based measurements, store the results as DICOM objects, and use those DICOM objects to re-load the analysis results.
 
