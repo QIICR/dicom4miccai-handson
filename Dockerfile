@@ -7,7 +7,7 @@ USER root
 USER $NB_USER
 
 RUN mkdir -p ${HOME}/data
-RUN cd ${HOME}/data && wget https://github.com/QIICR/dicom4miccai-handson/releases/download/miccai2017-beta/QIN-HEADNECK-Tables.tgz && tar zxf QIN-HEADNECK-Tables.tgz
+RUN cd ${HOME}/data && wget https://github.com/QIICR/dicom4miccai-handson/releases/download/miccai2017/QIN-HEADNECK-Tables.tgz && tar zxf QIN-HEADNECK-Tables.tgz
 
 RUN mkdir ${HOME}/src
 RUN cd ${HOME}/src && git clone https://github.com/qiicr/dicom4miccai-handson
