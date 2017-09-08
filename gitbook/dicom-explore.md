@@ -12,4 +12,4 @@ We will use [Jupyter Notebook](https://jupyter.org/) that will guide you over th
 
 2. Jupyter [Binder](https://beta.mybinder.org/) view: this view will launch a live hosted instance of the notebook accessible from the browser window. Feel free to change anything, explore and play with it! Whatever you do in the browser should not affect the master representation of the notebook. Link: https://beta.mybinder.org/v2/gh/qiicr/dicom4miccai-handson/miccai2017?filepath=/src/dicom4miccai-handson/notebooks/headneck.ipynb
 
-Of course, if you have Jupyter Notebook installed on your laptop, you are welcome to download the notebook file and play with it on your system! The notebook file can be downloaded here: https://github.com/QIICR/dicom4miccai-handson/blob/master/notebooks/headneck.ipynb
+Of course, if you have Jupyter Notebook installed on your laptop, you are welcome to download the notebook file and play with it on your system! The notebook file can be downloaded here: https://github.com/QIICR/dicom4miccai-handson/blob/miccai2017/notebooks/headneck.ipynb
