@@ -10,4 +10,4 @@ RUN mkdir -p ${HOME}/data
 RUN cd ${HOME}/data && wget https://github.com/QIICR/dicom4miccai-handson/releases/download/miccai2017/QIN-HEADNECK-Tables.tgz && tar zxf QIN-HEADNECK-Tables.tgz
 
 RUN mkdir ${HOME}/src
-RUN cd ${HOME}/src && git clone https://github.com/qiicr/dicom4miccai-handson
+RUN cd ${HOME}/src && git clone https://github.com/qiicr/dicom4miccai-handson && cd dicom4miccai-handson && git checkout miccai2017
