@@ -8,7 +8,7 @@ In this example, we will work with the [QIN-HEADNECK](https://wiki.cancerimaging
 
 We will use [Jupyter Notebook](https://jupyter.org/) that will guide you over the data processing steps. We provide two views of the notebook.
 
-1. Static view using Jupyter [nbviewer](https://nbviewer.jupyter.org/): this view will allow you to explore the dataset, processing steps and interactive plots, but you will not be able to interact with the content by changing the python code and exploring the results. Link: http://nbviewer.jupyter.org/github/QIICR/dicom4miccai-handson/blob/miccai2017/notebooks/headneck.ipynb
+1. Static view using Jupyter [nbviewer](https://nbviewer.jupyter.org/): this view will allow you to explore the dataset, processing steps and interactive plots, but you will not be able to interact with the content by changing the python code and observing the result of your changes. Link: http://nbviewer.jupyter.org/github/QIICR/dicom4miccai-handson/blob/miccai2017/notebooks/headneck.ipynb
 
 2. Jupyter [Binder](https://beta.mybinder.org/) view: this view will launch a live hosted instance of the notebook accessible from the browser window. Feel free to change anything, explore and play with it! Whatever you do in the browser should not affect the master representation of the notebook. Link: https://beta.mybinder.org/v2/gh/qiicr/dicom4miccai-handson/miccai2017?filepath=/src/dicom4miccai-handson/notebooks/headneck.ipynb
 
