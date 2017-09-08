@@ -14,5 +14,11 @@ The tutorial is organized into the following sections:
 2. [DICOM for storing analysis results](gitbook/dicom-slicer.md)
 3. [Exploration of the analysis results stored in DICOM](gitbook/dicom-explore.md)
 
+# Feedback
+
+Questions, comments, suggestions, corrections are welcomed!
+
+Please email `andrey.fedorov@gmail.com`, or [join the discussion on gitter]( https://gitter.im/QIICR/dcmqi)!
+
 
 
