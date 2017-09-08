@@ -8,4 +8,4 @@ Follow the steps below to familiarize yourself with the user interface of the `Q
 
 * [**`QuantitativeReporting` interface overview**](/gitbook/dicom-slicer-3-1.md)
 * [**Create and initialize a new segment**](/gitbook/dicom-slicer-3-2.md)
-* [**Segment the lesions**](/gitbook/dicom-slicer-3-3.md)
+* [**Segment the lesions**](/gitbook/dicom-slicer-3-3.md) 
