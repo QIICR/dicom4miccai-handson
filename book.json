@@ -22,6 +22,9 @@
     },
     "ga": {
       "token": "UA-44852938-10"
+    },
+    "fontsettings": {
+      "theme": "night"
     }
   }
 }
