@@ -19,5 +19,9 @@ In this part of the tutorial we will learn how to work with a DICOM dataset span
     * "database" [visual schema](https://app.quickdatabasediagrams.com/#/schema/_71V1H1AXEqqKWDnvx4VXw%20)
   * Jupyter Notebook demonstration
 
-This part will be covered in a Jupyter Notebook \(link to be added\).
+This part will be covered in [this Jupyter Notebook](https://github.com/QIICR/dicom4miccai-handson/blob/master/notebooks/multicollection.ipynb).
+
+### QIN-HEADNECK collection exploration 
+
+See [this Jupyter Notebook](https://github.com/QIICR/dicom4miccai-handson/blob/master/notebooks/headneck.ipynb) we developed for DICOM4MICCAI 2017.
 

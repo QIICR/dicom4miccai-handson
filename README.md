@@ -13,8 +13,9 @@ The purpose of this tutorial is to introduce you to the basic concepts related t
 The tutorial is organized into the following sections:
 
 1. [Prerequisites](prerequisites/)
-2. [DICOM for storing analysis results](using-dicom-to-store-your-analysis-results/dicom-slicer/)
-3. [Exploration of the analysis results stored in DICOM](dicom-explore.md)
+2. [Using DICOM for storing analysis results](using-dicom-to-store-your-analysis-results/dicom-slicer/)
+3. [DICOM Structured Reporting for  radiomics](using-dicom-to-store-your-analysis-results/dicom-structured-reporting-for-radiomics.md)
+4. [Exploration of the analysis results stored in DICOM](dicom-explore.md)
 
 ## Feedback
 
