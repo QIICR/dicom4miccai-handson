@@ -5,6 +5,8 @@
   * [If you are attending the tutorial in-person](prerequisites/if-you-are-attending-the-tutorial-in-person.md)
   * [If you are following on your own](prerequisites/if-you-are-following-on-your-own.md)
 * [Using DICOM to store your analysis results](using-dicom-to-store-your-analysis-results/README.md)
+  * [Using 3D Slicer to convert non-DICOM segmentation results](using-dicom-to-store-your-analysis-results/using-3d-slicer-to-convert-non-dicom-segmentation-results.md)
+  * [DICOM Structured Reporting for radiomics](using-dicom-to-store-your-analysis-results/dicom-structured-reporting-for-radiomics.md)
   * [Using 3D Slicer for storing analysis results in DICOM](using-dicom-to-store-your-analysis-results/dicom-slicer/README.md)
     * [Step 0: 3D Slicer interface basics](using-dicom-to-store-your-analysis-results/dicom-slicer/dicom-slicer-0.md)
     * [Step 1: Import DICOM data](using-dicom-to-store-your-analysis-results/dicom-slicer/dicom-slicer-1.md)
@@ -23,6 +25,6 @@
     * [Step 3: Segment lesions](using-dicom-to-store-your-analysis-results/dicom-mitk/dicom-mitk-3.md)
     * [Step 4: Explore and store the segmentations in DICOM](using-dicom-to-store-your-analysis-results/dicom-mitk/dicom-mitk-4.md)
     * [Step 5: Reload the segmentations from DICOM](using-dicom-to-store-your-analysis-results/dicom-mitk/dicom-mitk-5.md)
-* [Exploration of the analysis results stored in DICOM](dicom-explore.md)
+* [DICOM data wrangling](dicom-explore.md)
 * [Further reading](further-reading.md)
 

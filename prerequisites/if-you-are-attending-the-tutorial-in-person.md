@@ -1,4 +1,4 @@
-# If you are attending the tutorial in-person ...
+# If you are attending the tutorial in-person
 
 ## Step 1: Download the software package for your platform
 
@@ -30,7 +30,7 @@ To install Atom editor, unzip the Atom.zip file, and drag the Atom icon to your 
 
 **Linux**
 
-Extract the 3D Slicer application from the `Slicer-4.7.0-2017-08-30-linux-amd64.tar.gz` file.
+Extract the 3D Slicer application from the `Slicer-4.9.0-2018-09-10-linux-amd64.tar.gz` file.
 
 Install Atom using the `.deb` or `.rpm` package.
 
@@ -58,19 +58,23 @@ Search for `dicom-dump` package, click "Install" button when found.
 
 Once installed, click `dicom-dump` "Settings" button, locate the entry with the name "Path to DCMTK installation", and set this path to point to the `bin` directory in the `DICOM4MICCAI_ROOT`/dcmtk/bin.
 
-## Step 4: Download the datasets
+## Step 4: Datasets
 
 To keep the data that we will use in the tutorial, make a sub-folder `Data` in the `DICOM-tutorial` folder we created earlier.
 
-Download the file from this location, and extract its contents:
+At the tutorial, we will provide a flash drive with the dataset \(see below\).
 
-* [data package](https://github.com/QIICR/dicom4miccai-handson/releases/download/miccai2017/DICOM4MICCAI-Data.zip)
+![](../.gitbook/assets/image.png)
 
-The zip file contains the following items:
+The dataset includes data from 5 collections of [The Cancer Imaging Archive \(TCIA\)](https://www.cancerimagingarchive.net/):
 
-* Single DICOM PET series for subject 24 from the [TCIA QIN-HEADNECK collection](https://wiki.cancerimagingarchive.net/display/Public/QIN-HEADNECK)
-* Single DICOM CT series for subject 314 from the [TCIA LIDC-IDRI collection](https://wiki.cancerimagingarchive.net/display/Public/LIDC-IDRI)
-* segmentation of a lung nodule from the CT series above done using 3D Slicer [Chest Imaging Platform](https://chestimagingplatform.org/) extension "Lung lesion analyzer" module, stored in NRRD format
+* [TCGA-LGG](https://wiki.cancerimagingarchive.net/display/Public/TCGA-LGG)
+* [TCGA-GBM](https://wiki.cancerimagingarchive.net/display/Public/TCGA-GBM)
+* QIN-PROSTATE-Repeatability \(not yet released\)
+* [QIN-HEADNECK](https://wiki.cancerimagingarchive.net/display/Public/QIN-HEADNECK)
+* [LIDC-IDRI](https://wiki.cancerimagingarchive.net/display/Public/LIDC-IDRI)
+
+**NOTE:** The image data \(CT, MR, PET\) used in the tutorial datasets are identical to the TCIA content. The segmentations, measurements and radiomics features stored in DICOM are not yet available on TCIA. We are augmenting those TCIA imaging datasets with the image-derived data in the near future. The dataset we use in the tutorial is a representative example of the data that we expect to make available on TCIA publicly in the near future.
 
 ## Details on the software used
 
@@ -81,3 +85,4 @@ The zip file contains the following items:
 | dcmqi | Free open source library that implements conversion of the data stored in commonly used research formats into the standard DICOM representation. | [https://github.com/qiicr/dcmqi](https://github.com/qiicr/dcmqi) |
 | Atom | A hackable text editor for the 21st Century | [https://atom.io](https://atom.io) |
 | dicom-dump | An Atom package that simplifies examining the content of DICOM files | [https://atom.io/packages/dicom-dump](https://atom.io/packages/dicom-dump) |
+

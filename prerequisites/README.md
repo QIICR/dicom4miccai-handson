@@ -11,6 +11,11 @@ We prepared packages with the binaries of some of the tools that are largest in 
 Some of the components of the tutorial will utilize:
 
 * [Python](https://www.python.org/), various python packages available via `pip install`
+  * [pyradiomics](https://pyradiomics.readthedocs.io/en/latest/)
+  * pandas
+  * seaborn 
 * [Jupyter Notebook](http://jupyter.org/)
+* [dcm2niix](https://github.com/rordenlab/dcm2niix)
 
 You will need to have Python environment, pip, and Jupyter Notebook available on your computer to follow those components of the tutorial.
+
