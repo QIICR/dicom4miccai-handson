@@ -9,7 +9,7 @@
 * discuss the organization of the resulting object
   * reference to the TID 1500 template
 * load the resulting object into Slicer, discuss connection with dcmqi
-* discuss connection with [IBSI](https://arxiv.org/abs/1612.07003)
+* discuss connection with [IBSI](https://arxiv.org/abs/1612.07003) \(feature codes added in v7 of the document\)
 
 
 
