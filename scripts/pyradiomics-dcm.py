@@ -75,10 +75,10 @@ class SEGMetadataAccessor(DICOMMetadataAccessor):
 class CodedValue:
   def __init__(self,codeValue):
     self.codeValue = codeValue
-    self.codingSchemeDesignator = "99RADIOMICSIO"
+    self.codingSchemeDesignator = "99PYRADIOMICS"
     self.codeMeaning = codeValue
 
-  def __init__(self,value,scheme="99RADIOMICSIO",meaning=None):
+  def __init__(self,value,scheme="99PYRADIOMICS",meaning=None):
     self.codeValue = value
     self.codingSchemeDesignator = scheme
     if meaning is None:
@@ -104,6 +104,39 @@ class Metadata:
     self.m["Measurements"] = []
     self.measurementGroupCount = 0
 
+    imageTransformationMeaning = "Image transformation"
+    LoGMeaning = "Laplacian of Gaussian"
+    logarithmMeaning = "Logarithm transformation"
+    waveletMeaning = "Wavelet transformation"
+    sqrMeaning = "Square transformation"
+    sqrtMeaning = "Square root transformation"
+    kernelSizeMeaning = "Kernel size"
+    waveletSubband = "Wavelet subband"
+    gradientMeaning = "Gradient magnitude transformation"
+    expMeaning = "Exponent transformation"
+
+    self.LoGTransformation = { "modifier": CodedValue(self.makeHash(imageTransformationMeaning), "99PYRADIOMICS", imageTransformationMeaning).getDict(), \
+                              "modifierValue": CodedValue(self.makeHash(LoGMeaning), "99PYRADIOMICS", LoGMeaning).getDict()}
+    self.waveletTransformation = { "modifier": CodedValue(self.makeHash(imageTransformationMeaning), "99PYRADIOMICS", imageTransformationMeaning).getDict(), \
+                              "modifierValue": CodedValue(self.makeHash(waveletMeaning), "99PYRADIOMICS", waveletMeaning).getDict()}
+    self.gradient = { "modifier": CodedValue(self.makeHash(imageTransformationMeaning), "99PYRADIOMICS", imageTransformationMeaning).getDict(), \
+                              "modifierValue": CodedValue(self.makeHash(gradientMeaning), "99PYRADIOMICS", gradientMeaning).getDict()}
+    self.sqr = { "modifier": CodedValue(self.makeHash(imageTransformationMeaning), "99PYRADIOMICS", imageTransformationMeaning).getDict(), \
+          "modifierValue": CodedValue(self.makeHash(sqrMeaning), "99PYRADIOMICS", sqrMeaning).getDict()}
+    self.sqrt = { "modifier": CodedValue(self.makeHash(imageTransformationMeaning), "99PYRADIOMICS", imageTransformationMeaning).getDict(), \
+                              "modifierValue": CodedValue(self.makeHash(sqrtMeaning), "99PYRADIOMICS", sqrtMeaning).getDict()}
+    # note that some of those operations, such as log, include additional processing and are not pure application of mathematical
+    # operations. For example, pyradiomics logarithm operation includes normalization and calculation of absolute values,
+    # prior to calculating natural logarithm
+    self.logarithm = { "modifier": CodedValue(self.makeHash(imageTransformationMeaning), "99PYRADIOMICS", imageTransformationMeaning).getDict(), \
+          "modifierValue": CodedValue(self.makeHash(logarithmMeaning), "99PYRADIOMICS", logarithmMeaning).getDict()}
+    self.exp = { "modifier": CodedValue(self.makeHash(imageTransformationMeaning), "99PYRADIOMICS", imageTransformationMeaning).getDict(), \
+          "modifierValue": CodedValue(self.makeHash(expMeaning), "99PYRADIOMICS", expMeaning).getDict()}
+
+    self.LoGParameter = { "derivationParameter": CodedValue(self.makeHash(kernelSizeMeaning), "99PYRADIOMICS", kernelSizeMeaning).getDict()}
+    self.waveletSubband = { "modifier": CodedValue(self.makeHash(waveletSubband), "99PYRADIOMICS", waveletSubband).getDict(), \
+                      "modifierValue": CodedValue("", "99PYRADIOMICS", "").getDict()}
+
   def addMeasurementGroup(self):
     self.measurementGroupCount = self.measurementGroupCount+1
     measurementsGroup = {}
@@ -114,6 +147,10 @@ class Metadata:
   def readDictionary(self, featuresDictFile):
     # read features dictionary
     self.featuresDict = pandas.read_csv(featuresDictFile, sep='\t', low_memory=False)
+
+  def makeHash(self,text, length=6):
+    import base64, hashlib
+    return base64.b64encode(hashlib.sha1(str.encode(text)).digest()).decode('ascii')[:length]
 
   # adds a single measurement to the last measurement group
   def addMeasurement(self,value,quantityCode,unitsCode=CodedValue("1","UCUM","no units")):
@@ -128,7 +165,17 @@ class Metadata:
     featureTuple = classSubset[classSubset['pyradiomics_feature_name']==featureName]
 
     if featureTuple.empty:
-      return
+        codeMeaning = featureClass+"_"+featureName
+        import base64, hashlib
+        # use first 16 characters of the hash as the code
+
+        code = self.makeHash(codeMeaning)
+        measurement["quantity"] = {"CodeValue": code, "CodeMeaning":   codeMeaning, "CodingSchemeDesignator": "99PYRADIOMICS"}
+        if len(code)>16:
+          print("Sorry, the code value is too long!")
+          sys.exit()
+    else:
+      measurement["quantity"] = {"CodeValue": featureTuple["IBSI_code"].values[0], "CodeMeaning":   featureTuple["IBSI_meaning"].values[0], "CodingSchemeDesignator": "IBSI"}
 
     if numpy.isnan(value):
       return
@@ -136,7 +183,7 @@ class Metadata:
     #print(str(featureTuple))
 
     measurement["value"] = '%E' % Decimal(value)
-    measurement["quantity"] = {"CodeValue": featureTuple["IBSI_code"].values[0], "CodeMeaning": featureTuple["IBSI_meaning"].values[0], "CodingSchemeDesignator": "IBSI"}
+
     measurement["units"] = unitsCode.getDict()
 
     #print(str(measurement))
@@ -147,31 +194,60 @@ class Metadata:
 
     # parse preprocessing parameters
     # Ignore for now!
-    '''
-    logTransformation = { "modifier": CodedValue("filter", "99RADIOMICSIO", "Image filter transformation").getDict(), \
-                          "modifierValue": CodedValue("LoG", "99RADIOMICSIO", "Laplacian of Gaussian").getDict()}
-    waveletTransformation = { "modifier": CodedValue("filter", "99RADIOMICSIO", "Image filter transformation").getDict(), \
-                          "modifierValue": CodedValue("wavelet", "99RADIOMICSIO", "Wavelet transformation").getDict()}
 
-    logParameter = { "derivationParameter": CodedValue("sigma", "99RADIOMICSIO", "Kernel size").getDict()}
-    waveletSubband = { "modifier": CodedValue("wsubband", "99RADIOMICSIO", "Wavelet subband").getDict(), \
-                          "modifierValue": CodedValue("", "99RADIOMICSIO", "").getDict()}
 
-    if preprocessing.startswith("log"):
-      print(preprocessing)
-      measurement["measurementModifiers"] = [logTransformation]
-      measurement["measurementDerivationParameters"] = [logParameter]
-      measurement["measurementDerivationParameters"][0]["derivationParameterValue"] = preprocessing.split("-")[2]
-      measurement["measurementDerivationParameters"][0]["derivationParameterUnits"] = CodedValue("1","UCUM","no units").getDict()
+    # encode preprocessing parameters as well, where applicable
+    if preprocessing.startswith("log-"): # not log, since it could be logarithm
+      # example: log-sigma-1-0-mm-3D
+      try:
+        LoGparameters = preprocessing.split("-")
+        sigma = str(float(LoGparameters[2])+float("."+LoGparameters[3]))
+      except IndexError:
+        print("ERROR: Failed to parse LoG kernel from: %s!" % (preprocessing))
+        sys.exit()
+      except TypeError:
+        print("ERROR: Failed to convert LoG kernel from: %s!" % (preprocessing))
+        sys.exit()
 
-    if preprocessing.startswith("wavelet"):
-      measurement["measurementModifiers"] = [waveletTransformation, waveletSubband]
-      measurement["measurementModifiers"][1]["modifierValue"]["CodeValue"] = preprocessing.split("-")[1]
-      measurement["measurementModifiers"][1]["modifierValue"]["CodeMeaning"] = preprocessing.split("-")[1]
-      #measurement["measurementDerivationParameters"] = [waveletSubband]
-      #measurement["measurementDerivationParameters"][0]["derivationParameterValue"] = "1" # parameter has to be a scalar! pre.split("-")[1]
-      #measurement["measurementDerivationParameters"][0]["derivationParameterUnits"] = CodedValue("1","UCUM","no units").getDict()
-    '''
+      measurement["measurementModifiers"] = [self.LoGTransformation]
+      measurement["measurementDerivationParameters"] = [self.LoGParameter]
+      measurement["measurementDerivationParameters"][0]["derivationParameterValue"] = sigma
+      measurement["measurementDerivationParameters"][0]["derivationParameterUnits"] = CodedValue("mm","UCUM","millimeters").getDict()
+
+    elif preprocessing.startswith("wavelet"):
+      try:
+        subband = preprocessing.split("-")[1]
+      except IndexError:
+        print("ERROR: Failed to parse wavelet subband from %s!" % (preprocessing))
+        sys.exit()
+
+      measurement["measurementModifiers"] = [self.waveletTransformation, self.waveletSubband]
+      measurement["measurementModifiers"][1]["modifierValue"]["CodeValue"] = self.makeHash(subband)
+      measurement["measurementModifiers"][1]["modifierValue"]["CodeMeaning"] = subband
+
+    elif preprocessing.startswith("logarithm"):
+      measurement["measurementModifiers"] = [self.logarithm]
+
+    elif preprocessing == "square":
+      measurement["measurementModifiers"] = [self.sqr]
+
+    elif preprocessing == "squareroot":
+      measurement["measurementModifiers"] = [self.sqrt]
+
+    elif preprocessing == "gradient":
+      measurement["measurementModifiers"] = [self.gradient]
+
+    elif preprocessing == "exponential":
+      measurement["measurementModifiers"] = [self.exp]
+
+    elif preprocessing == "original":
+      # nothing to do here
+      pass
+
+    else:
+      print('ERROR: Unrecognized pre-processing type: %s!' % (preprocessing))
+      sys.exit()
+
     return
 
   def saveJSONToFile(self,fileName):
@@ -189,6 +265,7 @@ def main():
   parser.add_argument('--parameters', dest="parameters", metavar="pyradiomics extraction parameters")
   parser.add_argument('--temp-dir', dest="tempDir", metavar="Temporary directory")
   parser.add_argument('--features-dict', dest="featuresDict", metavar="Dictionary mapping pyradiomics feature names to the IBSI defined features.")
+  parser.add_argument('--volume-reconstructor', dest="volumeReconstructor", metavar="Choose the tool to be used for reconstructing image volume from the DICOM image series. Allowed options are plastimatch or dcm2niix (should be installed on the system). plastimatch will be used by default.", default="plastimatch")
 
   args = parser.parse_args()
 
@@ -201,7 +278,13 @@ def main():
   # convert input DICOM series into a scalar volume
   # plastimatch fails for prostate DWI Data! Need to report
   ##inputImage = dcmImageToNRRD(args.inputDICOMImageDir, tempDir)
-  inputImage = dcmImageToNIfTI(args.inputDICOMImageDir, tempDir)
+  if args.volumeReconstructor == "plastimatch":
+    inputImage = dcmImageToNRRD(args.inputDICOMImageDir, tempDir)
+  elif args.volumeReconstructor == "dcm2niix":
+    inputImage = dcmImageToNIfTI(args.inputDICOMImageDir, tempDir)
+  else:
+    print("Unknown option for volume reconstruction: %s. Allowed values are plastimatch and dcm2niix.")
+    return -1
 
   # convert segmentation into segments
   inputSegments = dcmSEGToNRRDs(args.inputSEG, tempDir)
@@ -238,16 +321,18 @@ def main():
     segmentNumber = os.path.split(inputSegment)[-1].split('.')[0]
 
     try:
-      #logger.debug("Initializing extractor")
+      print("Initializing extractor")
       parameters = collections.OrderedDict()
-      parameters["setting"] = {"geometryTolerance": 0.001, "correctMask": True}
+      #parameters["setting"] = {"geometryTolerance": 0.001, "correctMask": True}
 
-      if args.parameters is not None:
-        parameters.update(args.parameters)
+      print("Will init extractor")
       extractor = featureextractor.RadiomicsFeaturesExtractor(parameters)
+      if args.parameters is not None:
+        print("Will init params")
+        extractor.loadParams(args.parameters)
 
     except Exception:
-      #logger.error('EXTRACTOR INITIALIZATION FAILED', exc_info=True)
+      print('EXTRACTOR INITIALIZATION FAILED')
       exit(-1)
     featureVector = extractor.execute(inputImage, inputSegment, int(segmentNumber))
 
